@@ -16,7 +16,7 @@ public class MedienComparatorTest
     private CD _cd2;
     private CD _cd3;
     private DVD _dvd;
-    private Videospiel _videospiel;
+    private AbstractVideospiel _videospiel;
     private MedienComparator _medienComparator;
 
     public MedienComparatorTest()
@@ -26,7 +26,7 @@ public class MedienComparatorTest
         _cd3 = new CD("Titel b", "Kommentar", "Interpret", 100);
 
         _dvd = new DVD("Titel a", "Kommentar", "Regisseur", 100);
-        _videospiel = new Videospiel("Titel a", "Kommentar", "Wii");
+        _videospiel = new AbstractVideospiel("Titel a", "Kommentar", "Wii");
 
         _medienComparator = new MedienComparator();
     }
