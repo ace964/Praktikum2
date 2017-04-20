@@ -1,6 +1,6 @@
 /**
- * Eine CD ist ein Medium. Zusätzlich zu den Eigenschaften eines Mediums erfasst
- * sie Informationen zu Spiellänge und Interpret.
+ * Eine CD ist ein Medium. ZusÃ¤tzlich zu den Eigenschaften eines Mediums erfasst
+ * sie Informationen zu SpiellÃ¤nge und Interpret.
  * 
  * @author SE2-Team, PM2-Team
  * @version SoSe 2017
@@ -9,7 +9,7 @@ class CD extends AbstractMedium
 {
     private String _interpret; //Der Interpret der CD
 
-    private int _spiellaenge; //Die Spiellänge der CD in Minuten
+    private int _spiellaenge; //Die SpiellÃ¤nge der CD in Minuten
 
 
     /**
@@ -40,7 +40,7 @@ class CD extends AbstractMedium
     }
 
     /**
-     * Gibt den Interpreten der CD zurück.
+     * Gibt den Interpreten der CD zurÃ¼ck.
      * 
      * @return Den Interpreten der CD.
      * 
@@ -52,7 +52,7 @@ class CD extends AbstractMedium
     }
 
     /**
-     * Ändert den Interpreten
+     * Ã„ndert den Interpreten
      * 
      * @param interpret Der Interpret des Mediums
      * 
@@ -72,9 +72,9 @@ class CD extends AbstractMedium
     }
 
     /**
-     * Gibt die Spiellänge (in Minuten) der CD zurück.
+     * Gibt die SpiellÃ¤nge (in Minuten) der CD zurÃ¼ck.
      * 
-     * @return Die Spiellänge der CD.
+     * @return Die SpiellÃ¤nge der CD.
      * 
      * @ensure result > 0
      */
@@ -84,9 +84,9 @@ class CD extends AbstractMedium
     }
 
     /**
-     * Ändert die Spiellänge
+     * Ã„ndert die SpiellÃ¤nge
      * 
-     * @param spiellaenge Spiellänge des Medium
+     * @param spiellaenge SpiellÃ¤nge des Medium
      * 
      * @require spiellaenge > 0
      * @ensure getSpielaenge() == spiellaenge
@@ -100,8 +100,8 @@ class CD extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + super.getFormatiertenString()
-                + "Interpret: " + _interpret + "\n" + "    " + "Spiellänge: "
-                + _spiellaenge + "\n";
+        return super.getFormatiertenString()
+                + "Interpret: " + _interpret + "\n" 
+        		+ "    " + "Spiellänge: " + _spiellaenge + "\n";
     }
 }

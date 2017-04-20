@@ -5,7 +5,7 @@
  * @version SoSe 2017
  */
 
-public class AbstractMedium implements Medium
+public abstract class AbstractMedium implements Medium
 {
     public String _kommentar; // Ein Kommentar zum Medium
 
@@ -20,22 +20,22 @@ public class AbstractMedium implements Medium
     }
 
     /**
-     * Gibt einen formatierten Text mit allen Eigenschaften des Mediums zurück.
+     * Gibt einen formatierten Text mit allen Eigenschaften des Mediums zurÃ¼ck.
      * Jedes Attribute steht in einer eigenen Zeile mit der Form "Attributename:
      * Attributwert". Hinweis: Ein Zeilenumbruch wird durch den Character '\n'
      * dargestellt.
      * 
-     * @return Eine Textrepräsentation des Mediums.
+     * @return Eine TextreprÃ¤sentation des Mediums.
      * 
      * @ensure result != null
      */
     public String getFormatiertenString()
     {
-        return ":\n" + "    " + "Titel: " + _titel + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    ";
+        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    ";
     }
 
     /**
-     * Gibt den Kommentar zu diesem Medium zurück.
+     * Gibt den Kommentar zu diesem Medium zurÃ¼ck.
      * 
      * @return Den Kommentar zu diesem Medium.
      * 
@@ -47,7 +47,7 @@ public class AbstractMedium implements Medium
     }
 
     /**
-     * Ändert den Kommentar des Mediums
+     * Ã„ndert den Kommentar des Mediums
      * 
      * @param kommentar
      *            Ein Kommentar zu diesem Medium
@@ -62,19 +62,16 @@ public class AbstractMedium implements Medium
     }
 
     /**
-     * Gibt die Bezeichnung für die Medienart zurück.
+     * Gibt die Bezeichnung fÃ¼r die Medienart zurÃ¼ck.
      * 
-     * @return Die Bezeichnung für die Medienart.
+     * @return Die Bezeichnung fÃ¼r die Medienart.
      * 
      * @ensure result != null
      */
-    public String getMedienBezeichnung()
-    {
-        return null;
-    }
+    abstract public String getMedienBezeichnung();
 
     /**
-     * Gibt den Titel des Mediums zurück.
+     * Gibt den Titel des Mediums zurÃ¼ck.
      * 
      * @return Den Titel des Mediums
      * 
@@ -86,7 +83,7 @@ public class AbstractMedium implements Medium
     }
 
     /**
-     * Ändert den Titel des Mediums.
+     * Ã„ndert den Titel des Mediums.
      * 
      * @param titel
      *            Der Titel des Mediums
@@ -101,12 +98,12 @@ public class AbstractMedium implements Medium
     }
 
     /**
-     * Berechnet die Mietgebühr in Eurocent für eine angegebene Mietdauer in
+     * Berechnet die MietgebÃ¼hr in Eurocent fÃ¼r eine angegebene Mietdauer in
      * Tagen
      *
      * @param mietTage
      *            Die Anzahl der Ausleihtage eines Mediums
-     * @return Die Mietgebühr in Eurocent als Geldbetrag
+     * @return Die MietgebÃ¼hr in Eurocent als Geldbetrag
      *
      * @require mietTage > 0
      *

@@ -1,5 +1,5 @@
 /**
- * Eine {@link DVD} ist ein Medium. Zusätzlich zu den Eigenschaften eines
+ * Eine {@link DVD} ist ein Medium. ZusÃ¤tzlich zu den Eigenschaften eines
  * {@link Medium}s erfasst sie Informationen zum Regisseur und zur Laufzeit.
  * 
  * @author SE2-Team, PM2-Team
@@ -40,7 +40,7 @@ class DVD extends AbstractMedium
     }
 
     /**
-     * Gibt die Laufzeit der DVD (in Minuten) zurück.
+     * Gibt die Laufzeit der DVD (in Minuten) zurÃ¼ck.
      * 
      * @return Die Laufzeit der DVD in Minuten.
      * 
@@ -53,7 +53,7 @@ class DVD extends AbstractMedium
     }
 
     /**
-     * Ändert die Laufzeit der DVD
+     * Ã„ndert die Laufzeit der DVD
      * 
      * @param laufzeit Die Laufzeit der DVD in Minuten.
      * 
@@ -73,7 +73,7 @@ class DVD extends AbstractMedium
     }
 
     /**
-     * Gibt den Regisseur der DVD zurück
+     * Gibt den Regisseur der DVD zurÃ¼ck
      * 
      * @return Den Regisseur der DVD
      * 
@@ -86,7 +86,7 @@ class DVD extends AbstractMedium
     }
 
     /**
-     * Ändert den Regisseur der DVD
+     * Ã„ndert den Regisseur der DVD
      * 
      * @param regisseur Der Regisseur der DVD.
      * 
@@ -102,7 +102,7 @@ class DVD extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() +  super.getFormatiertenString()
+        return super.getFormatiertenString()
                 + "Regisseur: " + _regisseur + "\n" + "    " + "Laufzeit: "
                 + _laufzeit + "\n";
     }
