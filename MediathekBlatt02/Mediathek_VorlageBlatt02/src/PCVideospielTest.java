@@ -14,28 +14,32 @@ public class PCVideospielTest extends AbstractVideospielTest
     }
 
 
+    
     @Override
     protected AbstractVideospiel getMedium()
     {
-        return new PCVideospiel(TITEL, KOMMENTAR, SYSTEM);
+        return new PCVideospiel(TITEL, KOMMENTAR, "WindowsXP/Vista");
     }
 
+
+	
     @Test
     public void testBerechneMietgebuehr()
     {
-        assertEquals(_videospiel.berechneMietgebuehr(1).getEuroAnteil(), 2);
-        assertEquals(_videospiel.berechneMietgebuehr(1).getCentAnteil(), 0);
+    	PCVideospiel videospiel = (PCVideospiel) _medium1;
+        assertEquals(videospiel.berechneMietgebuehr(1).getEuroAnteil(), 2);
+        assertEquals(videospiel.berechneMietgebuehr(1).getCentAnteil(), 0);
 
-        assertEquals(_videospiel.berechneMietgebuehr(7).getEuroAnteil(), 2);
-        assertEquals(_videospiel.berechneMietgebuehr(7).getCentAnteil(), 0);
+        assertEquals(videospiel.berechneMietgebuehr(7).getEuroAnteil(), 2);
+        assertEquals(videospiel.berechneMietgebuehr(7).getCentAnteil(), 0);
 
-        assertEquals(_videospiel.berechneMietgebuehr(8).getEuroAnteil(), 7);
-        assertEquals(_videospiel.berechneMietgebuehr(8).getCentAnteil(), 0);
+        assertEquals(videospiel.berechneMietgebuehr(8).getEuroAnteil(), 7);
+        assertEquals(videospiel.berechneMietgebuehr(8).getCentAnteil(), 0);
 
-        assertEquals(_videospiel.berechneMietgebuehr(12).getEuroAnteil(), 7);
-        assertEquals(_videospiel.berechneMietgebuehr(12).getCentAnteil(), 0);
+        assertEquals(videospiel.berechneMietgebuehr(12).getEuroAnteil(), 7);
+        assertEquals(videospiel.berechneMietgebuehr(12).getCentAnteil(), 0);
 
-        assertEquals(_videospiel.berechneMietgebuehr(13).getEuroAnteil(), 12);
-        assertEquals(_videospiel.berechneMietgebuehr(13).getCentAnteil(), 0);
+        assertEquals(videospiel.berechneMietgebuehr(13).getEuroAnteil(), 12);
+        assertEquals(videospiel.berechneMietgebuehr(13).getCentAnteil(), 0);
     }
 }

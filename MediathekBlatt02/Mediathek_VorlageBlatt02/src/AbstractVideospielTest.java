@@ -17,7 +17,7 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
     }
 
     @Test
-    public void testeAbstractVideospiel()
+    public void testAbstractVideospiel()
     {
         assertEquals(SYSTEM, getMedium().getSystem());
     }
@@ -31,6 +31,13 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
         assertEquals(medium.getKommentar(), "Kommentar2");
     }
 
+
+	@Test
+	public void testGetMedienBezeichnung()
+	{
+		assertEquals("Videospiel", _medium1.getMedienBezeichnung());
+	}
+	
     @Test
     public abstract void testBerechneMietgebuehr();
 

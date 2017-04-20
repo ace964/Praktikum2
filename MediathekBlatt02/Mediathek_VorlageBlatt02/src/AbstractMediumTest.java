@@ -16,13 +16,7 @@ public abstract class AbstractMediumTest
         _medium1 = getMedium();
         _medium2 = getMedium();
     }
-
-    @Test
-    public void testGetMedienBezeichnung()
-    {
-        assertEquals(BEZEICHNUNG, _medium1.getMedienBezeichnung());
-    }
-
+    
     @Test
     public void testKonstruktor()
     {
@@ -70,6 +64,8 @@ public abstract class AbstractMediumTest
         
     }
     
+    @Test
+    public abstract void testGetMedienBezeichnung();
     protected abstract AbstractMedium getMedium();
 
 }

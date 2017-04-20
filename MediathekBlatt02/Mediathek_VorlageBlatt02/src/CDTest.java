@@ -24,8 +24,15 @@ public class CDTest extends AbstractMediumTest
 		assertEquals(((CD) _medium1).getSpiellaenge(), 99);
 	}
 
+	@Test
+	public void testGetMedienBezeichnung()
+	{
+		assertEquals("CD", _medium1.getMedienBezeichnung());
+	}
+	
 	protected CD getMedium()
 	{
 		return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
 	}
+
 }
