@@ -103,8 +103,8 @@ class DVD extends AbstractMedium
     public String getFormatiertenString()
     {
         return super.getFormatiertenString()
-                + "Regisseur: " + _regisseur + "\n" + "    " + "Laufzeit: "
-                + _laufzeit + "\n";
+                + "Regisseur: " + _regisseur + "\n" + 
+        		"    " + "Laufzeit: " + _laufzeit + "\n";
     }
 
 }
