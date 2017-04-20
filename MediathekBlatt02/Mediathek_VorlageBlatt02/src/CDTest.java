@@ -1,86 +1,31 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class CDTest
+public class CDTest extends AbstractMediumTest
 {
-    private static final String KOMMENTAR = "Kommentar";
-    private static final String TITEL = "Titel";
-    private static final String CD_BEZEICHNUNG = "CD";
-    private static final String INTERPRET = "CD Interpret";
-    private static final int LAENGE = 100;
-    private CD _cd1;
-    private CD _cd2;
 
-    public CDTest()
-    {
-        _cd1 = getMedium();
-        _cd2 = getMedium();
-    }
+	private static final String INTERPRET = "CD Interpret";
+	private static final int LAENGE = 100;
 
-    @Test
-    public void testGetMedienBezeichnung()
-    {
-        String cdBezeichnung = CD_BEZEICHNUNG;
-        assertEquals(cdBezeichnung, _cd1.getMedienBezeichnung());
-    }
+	@Test
+	public void testCD()
+	{
+		assertEquals(LAENGE, ((CD) _medium1).getSpiellaenge());
+		assertEquals(INTERPRET, ((CD) _medium1).getInterpret());
+	}
 
-    @Test
-    public void testKonstruktor()
-    {
-        assertEquals(TITEL, _cd1.getTitel());
-        assertEquals(KOMMENTAR, _cd1.getKommentar());
-        assertEquals(LAENGE, _cd1.getSpiellaenge());
-        assertEquals(INTERPRET, _cd1.getInterpret());
-    }
+	@Test
+	public final void testCDSetter()
+	{
+		((CD) _medium1).setInterpret("Interpret2");
+		assertEquals(((CD) _medium1).getInterpret(), "Interpret2");
+		((CD) _medium1).setSpiellaenge(99);
+		assertEquals(((CD) _medium1).getSpiellaenge(), 99);
+	}
 
-    @Test
-    public final void testSetter()
-    {
-        _cd1.setTitel("Titel2");
-        assertEquals(_cd1.getTitel(), "Titel2");
-        _cd1.setKommentar("Kommentar2");
-        assertEquals(_cd1.getKommentar(), "Kommentar2");
-        _cd1.setInterpret("Interpret2");
-        assertEquals(_cd1.getInterpret(), "Interpret2");
-        _cd1.setSpiellaenge(99);
-        assertEquals(_cd1.getSpiellaenge(), 99);
-    }
-
-    @Test
-    /*
-     * Von ein und der selben CD kann es mehrere Exemplare geben, die von
-     * unterschiedlichen Personen ausgeliehen werden können.
-     */
-    public void testEquals()
-    {
-        assertFalse("Mehrere Exemplare der gleichen CD sind ungleich", _cd1.equals(_cd2));
-        assertTrue("Dasselbe Exemplare der gleichen CD ist gleich", _cd1.equals(_cd1));
-    }
-
-    @Test
-    public final void testGetFormatiertenString()
-    {
-        Medium medium = getMedium();
-        assertNotNull(medium.getFormatiertenString());
-    }
-
-    private CD getMedium()
-    {
-        return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
-    }
-
-    @Test
-    public void testBerechneMietgebuehr()
-    {
-        assertEquals(_cd1.berechneMietgebuehr(10).getEuroAnteil(),30);
-        assertEquals(_cd1.berechneMietgebuehr(10).getCentAnteil(),0);
-        
-        assertEquals(_cd1.berechneMietgebuehr(16).getEuroAnteil(),48);
-        assertEquals(_cd1.berechneMietgebuehr(16).getCentAnteil(),0);
-        
-    }
+	protected CD getMedium()
+	{
+		return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
+	}
 }
