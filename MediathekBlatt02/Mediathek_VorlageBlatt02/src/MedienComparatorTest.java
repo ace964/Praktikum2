@@ -26,7 +26,7 @@ public class MedienComparatorTest
         _cd3 = new CD("Titel b", "Kommentar", "Interpret", 100);
 
         _dvd = new DVD("Titel a", "Kommentar", "Regisseur", 100);
-        _videospiel = new AbstractVideospiel("Titel a", "Kommentar", "Wii");
+        _videospiel = new KonsolenVideospiel("Titel a", "Kommentar", "Wii");
 
         _medienComparator = new MedienComparator();
     }

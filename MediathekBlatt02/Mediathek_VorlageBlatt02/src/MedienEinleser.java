@@ -217,7 +217,23 @@ class MedienEinleser
         {
             String system = naechsterToken(tokenizer);
         
-             medium = new AbstractVideospiel(titel, kommentar, system);
+            switch(system)
+            {
+            	case "Windows Vista/XP":
+            	case "Mac OS X":
+            		medium = new PCVideospiel(titel, kommentar, system);
+            		break;
+            		
+            	case "Xbox 360":
+            	case "Nintendo DS":
+            	case "Wii":
+            	case "Playstation 3":
+            		medium = new KonsolenVideospiel(titel, kommentar, system);
+            		break;
+            	
+            	default:
+            		medium = null;
+            }
         }
         return medium;
     }

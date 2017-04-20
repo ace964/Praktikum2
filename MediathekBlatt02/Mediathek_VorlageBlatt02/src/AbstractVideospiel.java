@@ -69,8 +69,7 @@ abstract class AbstractVideospiel extends AbstractMedium
     public Geldbetrag berechneMietgebuehr(int mietTage)
     {
         assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
-        Geldbetrag geldbetrag = Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
-        return geldbetrag;
+        return Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
     }
 
     protected abstract int getPreisNachTagen(int tage);
