@@ -5,7 +5,7 @@
  * @author SE2-Team, PR2-Team, PR2-Team
  * @version SoSe 2017
  */
-class Videospiel implements Medium
+class Videospiel extends AbstractMedium
 {
     /**
      * Das System, auf dem das Spiel lauffähig ist
@@ -39,11 +39,8 @@ class Videospiel implements Medium
      */
     public Videospiel(String titel, String kommentar, String system)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel, kommentar);
         assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
         _system = system;
     }
 
@@ -69,48 +66,6 @@ class Videospiel implements Medium
     public String toString()
     {
         return getFormatiertenString();
-    }
-
-    @Override
-    public String getKommentar()
-    {
-        return _kommentar;
-    }
-
-    /**
-     * Ändert den Kommentar
-     * 
-     * @param kommentar Ein Kommentar zum Medium
-     * 
-     * @require kommentar != null
-     * @ensure getKommentar() == kommentar
-     */
-    @Override
-    public void setKommentar(String kommentar)
-    {
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-        _kommentar = kommentar;
-    }
-
-    @Override
-    public String getTitel()
-    {
-        return _titel;
-    }
-
-    /**
-     * Ändert den Titel
-     * 
-     * @param titel Der Titel des Mediums
-     * 
-     * @require titel != null
-     * @ensure getTitel() == titel
-     */
-    @Override
-    public void setTitel(String titel)
-    {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        _titel = titel;
     }
 
     @Override
