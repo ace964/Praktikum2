@@ -57,10 +57,8 @@ public class CDTest
      */
     public void testEquals()
     {
-        assertFalse("Mehrere Exemplare der gleichen CD sind ungleich",
-                _cd1.equals(_cd2));
-        assertTrue("Dasselbe Exemplare der gleichen CD ist gleich",
-                _cd1.equals(_cd1));
+        assertFalse("Mehrere Exemplare der gleichen CD sind ungleich", _cd1.equals(_cd2));
+        assertTrue("Dasselbe Exemplare der gleichen CD ist gleich", _cd1.equals(_cd1));
     }
 
     @Test
@@ -75,4 +73,14 @@ public class CDTest
         return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
     }
 
+    @Test
+    public void testBerechneMietgebuehr()
+    {
+        assertEquals(_cd1.berechneMietgebuehr(10).getEuroAnteil(),30);
+        assertEquals(_cd1.berechneMietgebuehr(10).getCentAnteil(),0);
+        
+        assertEquals(_cd1.berechneMietgebuehr(16).getEuroAnteil(),48);
+        assertEquals(_cd1.berechneMietgebuehr(16).getCentAnteil(),0);
+        
+    }
 }

@@ -107,9 +107,8 @@ class Verleihkarte
      */
     public Geldbetrag getMietgebuehr()
     {
-        // TODO für Aufgabe 2.2.4: Diese Dummy-Implementation ersetzen, sobald
-        // Medium die benötigte Funktionalität anbietet.
-        return Geldbetrag.get(0);
+        int mietDauer = Datum.heute().compareTo(_ausleihdatum) + 1;
+        return _medium.berechneMietgebuehr(mietDauer);
     }
 
     /**

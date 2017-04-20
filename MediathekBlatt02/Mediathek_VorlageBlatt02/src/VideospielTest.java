@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -54,4 +53,14 @@ public class VideospielTest
         assertEquals(medium.getTitel(), "Titel2");
     }
 
+    @Test
+    public void testBerechneMietgebuehr()
+    {
+        assertEquals(_videoSpiel.berechneMietgebuehr(10).getEuroAnteil(), 2);
+        assertEquals(_videoSpiel.berechneMietgebuehr(10).getCentAnteil(), 0);
+
+        assertEquals(_videoSpiel.berechneMietgebuehr(16).getEuroAnteil(), 2);
+        assertEquals(_videoSpiel.berechneMietgebuehr(16).getCentAnteil(), 0);
+
+    }
 }

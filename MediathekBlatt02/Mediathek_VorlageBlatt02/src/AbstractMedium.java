@@ -1,7 +1,7 @@
 /**
  * Eine Abstrakte Klasse, die das Interface Medium bedient.
  * 
- * @author Frederic Dlugi, Maximilian Mang 
+ * @author Frederic Dlugi, Maximilian Mang
  * @version SoSe 2017
  */
 
@@ -10,7 +10,7 @@ public class AbstractMedium implements Medium
     public String _kommentar; // Ein Kommentar zum Medium
 
     public String _titel; // Der Titel des Mediums
-    
+
     public AbstractMedium(String titel, String kommentar)
     {
         assert titel != null : "Vorbedingung verletzt: titel != null";
@@ -31,8 +31,7 @@ public class AbstractMedium implements Medium
      */
     public String getFormatiertenString()
     {
-        return ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    ";
+        return ":\n" + "    " + "Titel: " + _titel + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    ";
     }
 
     /**
@@ -61,7 +60,7 @@ public class AbstractMedium implements Medium
         assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
         _kommentar = kommentar;
     }
-    
+
     /**
      * Gibt die Bezeichnung für die Medienart zurück.
      * 
@@ -69,7 +68,8 @@ public class AbstractMedium implements Medium
      * 
      * @ensure result != null
      */
-    public String getMedienBezeichnung(){
+    public String getMedienBezeichnung()
+    {
         return null;
     }
 
@@ -98,5 +98,24 @@ public class AbstractMedium implements Medium
     {
         assert titel != null : "Vorbedingung verletzt: titel != null";
         _titel = titel;
+    }
+
+    /**
+     * Berechnet die Mietgebühr in Eurocent für eine angegebene Mietdauer in
+     * Tagen
+     *
+     * @param mietTage
+     *            Die Anzahl der Ausleihtage eines Mediums
+     * @return Die Mietgebühr in Eurocent als Geldbetrag
+     *
+     * @require mietTage > 0
+     *
+     * @ensure result != null
+     */
+    public Geldbetrag berechneMietgebuehr(int mietTage)
+    {
+        assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
+        Geldbetrag geldbetrag = Geldbetrag.get(300*mietTage);
+        return geldbetrag;
     }
 }
