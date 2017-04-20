@@ -7,15 +7,9 @@
  */
 class CD extends AbstractMedium
 {
-    /**
-     * Der Interpret der CD
-     */
-    private String _interpret;
+    private String _interpret; //Der Interpret der CD
 
-    /**
-     * Die Spiellänge der CD in Minuten
-     */
-    private int _spiellaenge;
+    private int _spiellaenge; //Die Spiellänge der CD in Minuten
 
 
     /**
@@ -106,8 +100,7 @@ class CD extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
+        return getMedienBezeichnung() + super.getFormatiertenString()
                 + "Interpret: " + _interpret + "\n" + "    " + "Spiellänge: "
                 + _spiellaenge + "\n";
     }

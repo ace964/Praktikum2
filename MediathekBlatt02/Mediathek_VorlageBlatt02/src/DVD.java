@@ -8,26 +8,9 @@
  */
 class DVD extends AbstractMedium
 {
-    /**
-     * Die Laufzeit des Hauptteils der DVD (in Minuten).
-     */
-    private int _laufzeit;
+    private int _laufzeit; // Die Laufzeit des Hauptteils der DVD (in Minuten).
 
-    /**
-     * Der Regisseur des Inhalts der DVD.
-     */
-    private String _regisseur;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     * 
-     */
-    private String _titel;
+    private String _regisseur; // Der Regisseur des Inhalts der DVD.
 
     /**
      * Initialisiert eine neue DVD mit den gegebenen Daten.
@@ -119,8 +102,7 @@ class DVD extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
+        return getMedienBezeichnung() +  super.getFormatiertenString()
                 + "Regisseur: " + _regisseur + "\n" + "    " + "Laufzeit: "
                 + _laufzeit + "\n";
     }

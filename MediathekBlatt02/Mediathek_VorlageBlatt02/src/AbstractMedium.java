@@ -31,7 +31,8 @@ public class AbstractMedium implements Medium
      */
     public String getFormatiertenString()
     {
-        return null;
+        return ":\n" + "    " + "Titel: " + _titel
+                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    ";
     }
 
     /**
@@ -68,8 +69,7 @@ public class AbstractMedium implements Medium
      * 
      * @ensure result != null
      */
-    public String getMedienBezeichnung()
-    {
+    public String getMedienBezeichnung(){
         return null;
     }
 

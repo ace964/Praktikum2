@@ -7,20 +7,7 @@
  */
 class Videospiel extends AbstractMedium
 {
-    /**
-     * Das System, auf dem das Spiel lauffähig ist
-     */
-    private String _system;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     */
-    private String _titel;
+    private String _system; // Das System, auf dem das Spiel lauffähig ist
 
     /**
      * Initialisiert ein neues Videospiel.
@@ -71,8 +58,7 @@ class Videospiel extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
+        return getMedienBezeichnung() +  super.getFormatiertenString()
                 + "System: " + _system + "\n";
     }
 }
