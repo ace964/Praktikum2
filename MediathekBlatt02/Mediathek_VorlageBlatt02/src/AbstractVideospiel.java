@@ -5,10 +5,10 @@
  * @author SE2-Team, PR2-Team, PR2-Team
  * @version SoSe 2017
  */
-class AbstractVideospiel extends AbstractMedium
+abstract class AbstractVideospiel extends AbstractMedium
 {
     private String _system; // Das System, auf dem das Spiel lauffähig ist
-    private final int basispreis = 200; // Basispreis in Eurocent
+    private static final int BASISPREIS = 200; // Basispreis in Eurocent
 
     /**
      * Initialisiert ein neues Videospiel.
@@ -62,41 +62,16 @@ class AbstractVideospiel extends AbstractMedium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + super.getFormatiertenString() + "System: " + _system + "\n";
+        return super.getFormatiertenString() + "System: " + _system + "\n";
     }
 
     @Override
     public Geldbetrag berechneMietgebuehr(int mietTage)
     {
         assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
-        Geldbetrag geldbetrag = Geldbetrag.get(basispreis + getPreisNachTagen(mietTage));
+        Geldbetrag geldbetrag = Geldbetrag.get(BASISPREIS + getPreisNachTagen(mietTage));
         return geldbetrag;
     }
 
-    private int getPreisNachTagen(int tage)
-    {
-        int geldbetrag;
-        if (_system.equals("Windows Vista/XP") |_system.equals(" Mac OS X 28.3.2017")|_system.equals(" Mac OS X 11.4.2017"))
-        {
-            if (tage > 7) {
-                if ((tage-7) %5 > 0) {
-                    geldbetrag = (((tage-7)/5) +1)*500;
-                }
-                else
-                {
-                    geldbetrag = ((tage-7)/5)*500;
-                }
-                return geldbetrag;
-            } 
-            else 
-            {
-                return 0;
-            }
-        } 
-        else
-        {
-            geldbetrag = (tage/3)*700;
-            return geldbetrag;
-        }
-    }
+    protected abstract int getPreisNachTagen(int tage);
 }
