@@ -9,7 +9,7 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
     protected static final String TITEL = "Titel";
     protected static final String BEZEICHNUNG = "Videospiel";
     protected final String SYSTEM;
-    protected AbstractVideospiel _videospiel;
+ 
 
     public AbstractVideospielTest(String system)
     {
@@ -19,14 +19,15 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
     @Test
     public void testAbstractVideospiel()
     {
-        assertEquals(SYSTEM, getMedium().getSystem());
+    	AbstractVideospiel medium = (AbstractVideospiel) _medium1;
+        assertEquals(SYSTEM, medium.getSystem());
     }
 
 
     @Test
     public final void testSetKommentar()
     {
-        AbstractVideospiel medium = getMedium();
+        AbstractVideospiel medium = (AbstractVideospiel) _medium1;
         medium.setKommentar("Kommentar2");
         assertEquals(medium.getKommentar(), "Kommentar2");
     }

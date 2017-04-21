@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -210,7 +211,13 @@ class AusleihWerkzeug
         List<Medium> medien = _medienAuflisterWerkzeug.getSelectedMedien();
         Kunde selectedKunde = _kundenAuflisterWerkzeug.getSelectedKunde();
         Datum heute = Datum.heute();
-        _verleihService.verleiheAn(selectedKunde, medien, heute);
+        try
+		{
+			_verleihService.verleiheAn(selectedKunde, medien, heute);
+		} catch (ProtokollierException e)
+		{
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Fehlermeldung", JOptionPane.ERROR_MESSAGE);
+		}
     }
 
     /**

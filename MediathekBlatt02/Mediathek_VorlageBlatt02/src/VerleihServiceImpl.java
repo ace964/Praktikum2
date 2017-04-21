@@ -31,6 +31,11 @@ class VerleihServiceImpl extends AbstractObservableService implements
     private KundenstammService _kundenstamm;
 
     /**
+     * Der Protokollierer
+     */
+    private VerleihProtokollierer _protokollierer;
+    
+    /**
      * Konstruktor. Erzeugt einen neuen VerleihServiceImpl.
      * 
      * @param kundenstamm Der KundenstammService.
@@ -51,6 +56,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
         _verleihkarten = erzeugeVerleihkartenBestand(initialBestand);
         _kundenstamm = kundenstamm;
         _medienbestand = medienbestand;
+        _protokollierer = new VerleihProtokollierer();
     }
 
     /**
@@ -90,13 +96,14 @@ class VerleihServiceImpl extends AbstractObservableService implements
     }
 
     @Override
-    public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum)
+    public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum) throws ProtokollierException
     {
         assert sindAlleVerliehen(medien) : "Vorbedingung verletzt: sindAlleVerliehen(medien)";
         assert rueckgabeDatum != null : "Vorbedingung verletzt: rueckgabeDatum != null";
 
         for (Medium medium : medien)
         {
+        	_protokollierer.protokolliere(VerleihEreignis.RUECKGABE, _verleihkarten.get(medium));
             _verleihkarten.remove(medium);
         }
         informiereUeberAenderung();
@@ -134,7 +141,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
     }
 
     @Override
-    public void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum)
+    public void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum) throws ProtokollierException
     {
         assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
         assert sindAlleNichtVerliehen(medien) : "Vorbedingung verletzt: sindAlleNichtVerliehen(medien) ";
@@ -145,7 +152,7 @@ class VerleihServiceImpl extends AbstractObservableService implements
         {
             Verleihkarte verleihkarte = new Verleihkarte(kunde, medium,
                     ausleihDatum);
-
+            _protokollierer.protokolliere(VerleihEreignis.AUSLEIHE,verleihkarte);
             _verleihkarten.put(medium, verleihkarte);
         }
 
