@@ -18,6 +18,12 @@ public class KonsolenVideospielTest extends AbstractVideospielTest
     {
         return new KonsolenVideospiel(TITEL, KOMMENTAR, " Wii  ");
     }
+    
+	@Test
+	public void testGetMedienBezeichnung()
+	{
+		assertEquals("KonsolenVideospiel", _medium1.getMedienBezeichnung());
+	}
 
     @Test
     public void testBerechneMietgebuehr()

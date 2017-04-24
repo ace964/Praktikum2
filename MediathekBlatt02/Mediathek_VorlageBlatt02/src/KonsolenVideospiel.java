@@ -10,4 +10,10 @@ public class KonsolenVideospiel extends AbstractVideospiel
     {
         return (tage/3)*700;
     }
+    
+    @Override
+    public String getMedienBezeichnung()
+    {
+        return "KonsolenVideospiel";
+    }
 }

@@ -21,6 +21,12 @@ public class PCVideospielTest extends AbstractVideospielTest
         return new PCVideospiel(TITEL, KOMMENTAR, "WindowsXP/Vista");
     }
 
+    
+	@Test
+	public void testGetMedienBezeichnung()
+	{
+		assertEquals("PCVideospiel", _medium1.getMedienBezeichnung());
+	}
 
 	
     @Test

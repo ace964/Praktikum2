@@ -33,11 +33,11 @@ public abstract class AbstractMediumTest
         assertEquals(_medium1.getKommentar(), "Kommentar2");
     }
 
-    @Test
-    /*
+    /**
      * Von ein und dem selben Medium kann es mehrere Exemplare geben, die von
      * unterschiedlichen Personen ausgeliehen werden können.
      */
+    @Test
     public void testEquals()
     {
         assertFalse("Mehrere Exemplare des gleichen Mediums sind ungleich", _medium1.equals(_medium2));
@@ -50,8 +50,6 @@ public abstract class AbstractMediumTest
         Medium medium = getMedium();
         assertNotNull(medium.getFormatiertenString());
     }
-
-
 
     @Test
     public void testBerechneMietgebuehr()
@@ -66,6 +64,7 @@ public abstract class AbstractMediumTest
     
     @Test
     public abstract void testGetMedienBezeichnung();
+    
     protected abstract AbstractMedium getMedium();
 
 }

@@ -34,10 +34,7 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
 
 
 	@Test
-	public void testGetMedienBezeichnung()
-	{
-		assertEquals("Videospiel", _medium1.getMedienBezeichnung());
-	}
+	public abstract void testGetMedienBezeichnung();
 	
     @Test
     public abstract void testBerechneMietgebuehr();

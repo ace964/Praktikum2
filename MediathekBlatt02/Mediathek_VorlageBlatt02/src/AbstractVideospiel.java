@@ -35,12 +35,6 @@ abstract class AbstractVideospiel extends AbstractMedium
         _system = system;
     }
 
-    @Override
-    public String getMedienBezeichnung()
-    {
-        return "Videospiel";
-    }
-
     /**
      * Gibt das System zurück, auf dem das Spiel lauffähig ist.
      * 

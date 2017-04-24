@@ -1,6 +1,13 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Der VerleihProtokollierer protokolliert die Verleihereignisse der Mediathek.
+ * 
+ * @author Maximilian Mang, Frederic Dlugi
+ * @version SoSe 2017
+ *
+ */
 public class VerleihProtokollierer
 {
 	
