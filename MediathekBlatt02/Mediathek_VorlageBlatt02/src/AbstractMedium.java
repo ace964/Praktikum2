@@ -7,11 +7,11 @@
 
 public abstract class AbstractMedium implements Medium
 {
-    public String _kommentar; // Ein Kommentar zum Medium
+    private String _kommentar; // Ein Kommentar zum Medium
 
-    public String _titel; // Der Titel des Mediums
+    private String _titel; // Der Titel des Mediums
 
-    public AbstractMedium(String titel, String kommentar)
+    protected AbstractMedium(String titel, String kommentar)
     {
         assert titel != null : "Vorbedingung verletzt: titel != null";
         assert kommentar != null : "Vorbedingung verletzt: kommentar != null";

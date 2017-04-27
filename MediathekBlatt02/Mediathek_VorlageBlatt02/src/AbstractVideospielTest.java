@@ -19,8 +19,7 @@ public abstract class AbstractVideospielTest extends AbstractMediumTest
     @Test
     public void testAbstractVideospiel()
     {
-    	AbstractVideospiel medium = (AbstractVideospiel) _medium1;
-        assertEquals(SYSTEM, medium.getSystem());
+        assertEquals(SYSTEM, getMedium().getSystem());
     }
 
 
