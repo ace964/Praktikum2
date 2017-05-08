@@ -29,7 +29,6 @@ public class VerleihProtokollierer
 		try(FileWriter writer = new FileWriter("./protokoll.txt", true))
 		{
 			writer.write(ereignis+ ": " + verleihkarte);
-			writer.close();
 			
 		} catch (IOException e)
 		{
